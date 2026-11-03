@@ -3,79 +3,184 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Software de Facturación y TPV para Astilleros, Varaderos y Náutica | VeriFactu 2026</title>
-    <meta name="description" content="Adaptación y homologación de software de facturación para astilleros, varaderos y talleres navales. Cumplimiento de VeriFactu (RD 1007/2023), control de varadas, travelift y exenciones de IVA marino sin cuotas mensuales.">
+    <title>Software TPV y Facturación para Astilleros, Varaderos y Náutica | VeriFactu 2026</title>
+    <meta name="description" content="Software de gestión integral, TPV y facturación para astilleros, varaderos y servicios náuticos en España. Control de estancias en cuna, metros de eslora, trabajos de carena, repuestos marinos y normativa VeriFactu (RD 1007/2023) sin cuotas mensuales. Licencia definitiva 333 €.">
+    <link rel="canonical" href="https://victor23231.github.io/software-tpv-astilleros-varaderos-verifactu/">
     <meta name="robots" content="index, follow">
     <style>
-        :root { --primary: #003366; --accent: #0088cc; --dark: #0f172a; --light: #f8fafc; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #334155; margin: 0; padding: 0; background-color: var(--light); }
-        header { background: linear-gradient(135deg, var(--primary), var(--accent)); color: white; padding: 60px 20px; text-align: center; }
-        h1 { margin: 0 0 15px; font-size: 2.4rem; font-weight: 800; }
-        .subtitle { font-size: 1.25rem; opacity: 0.95; max-width: 800px; margin: 0 auto 25px; }
-        .container { max-width: 960px; margin: 40px auto; padding: 0 20px; }
-        .video-box { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; background: #000; border-radius: 12px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2); margin: 30px 0; }
-        .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        .card { background: white; border-radius: 12px; padding: 35px; margin: 30px 0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
-        .card h2 { color: var(--primary); margin-top: 0; font-size: 1.7rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
-        .cta-btn { display: inline-block; background: #e11d48; color: white; padding: 16px 36px; font-size: 1.2rem; font-weight: 700; text-decoration: none; border-radius: 8px; transition: background 0.2s; box-shadow: 0 10px 15px -3px rgba(225, 29, 72, 0.3); }
-        .cta-btn:hover { background: #be123c; }
-        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        th, td { padding: 14px 16px; text-align: left; border-bottom: 1px solid #e2e8f0; }
-        th { background: #f1f5f9; color: var(--primary); font-weight: 700; }
-        .highlight { background: #eff6ff; border-left: 4px solid var(--accent); padding: 18px; margin: 25px 0; border-radius: 0 8px 8px 0; }
-        footer { background: var(--dark); color: #94a3b8; text-align: center; padding: 30px 20px; font-size: 0.95rem; margin-top: 60px; }
-        footer a { color: #38bdf8; text-decoration: none; }
+        :root {
+            --primary: #bd5883;
+            --primary-hover: #9c436a;
+            --dark: #0f172a;
+            --dark-card: #1e293b;
+            --border: #334155;
+            --text-light: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+            --accent-green: #10b981;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background: var(--dark); color: var(--text-light); line-height: 1.7; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+        header { background: #090d16; border-bottom: 1px solid var(--border); padding: 18px 0; position: sticky; top: 0; z-index: 100; }
+        .nav-wrap { display: flex; justify-content: space-between; align-items: center; }
+        .logo-text { font-size: 18px; font-weight: 800; color: #ffffff; text-decoration: none; }
+        .logo-text span { color: var(--accent); }
+        .nav-cta { background: var(--primary); color: white; padding: 9px 18px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 14px; }
+        .nav-cta:hover { background: var(--primary-hover); }
+        
+        .breadcrumbs { font-size: 13px; color: var(--text-muted); margin: 24px 0 10px; }
+        .breadcrumbs a { color: var(--accent); text-decoration: none; }
+        
+        .hero { padding: 40px 0 50px; text-align: left; }
+        .hero-tag { display: inline-block; background: rgba(56, 189, 248, 0.1); color: var(--accent); border: 1px solid rgba(56, 189, 248, 0.3); padding: 5px 14px; border-radius: 50px; font-size: 13px; font-weight: 600; margin-bottom: 20px; }
+        .hero h1 { font-size: 38px; font-weight: 900; line-height: 1.25; margin-bottom: 20px; }
+        .hero h1 span { color: var(--accent); }
+        .hero p { font-size: 18px; color: var(--text-muted); max-width: 900px; margin-bottom: 30px; }
+        
+        .cta-box { background: linear-gradient(135deg, rgba(189,88,131,0.2) 0%, rgba(15,23,42,0.6) 100%); border: 1px solid var(--primary); border-radius: 14px; padding: 30px; margin-bottom: 50px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+        .cta-box h3 { font-size: 22px; font-weight: 800; margin-bottom: 6px; }
+        .cta-box p { color: #e2e8f0; font-size: 15px; margin: 0; }
+        .btn-cta { background: var(--primary); color: white; padding: 14px 28px; border-radius: 10px; font-weight: 800; text-decoration: none; font-size: 16px; transition: all 0.2s; white-space: nowrap; }
+        .btn-cta:hover { background: var(--primary-hover); }
+
+        .article-content { background: var(--dark-card); border: 1px solid var(--border); border-radius: 16px; padding: 45px; margin-bottom: 50px; }
+        .article-content h2 { font-size: 26px; font-weight: 800; color: #ffffff; margin: 40px 0 16px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+        .article-content h2:first-of-type { margin-top: 0; }
+        .article-content h3 { font-size: 20px; font-weight: 700; color: var(--accent); margin: 28px 0 12px; }
+        .article-content p { color: #cbd5e1; font-size: 16px; margin-bottom: 20px; line-height: 1.8; }
+        .article-content ul, .article-content ol { margin: 0 0 24px 28px; color: #cbd5e1; font-size: 15px; }
+        .article-content li { margin-bottom: 10px; line-height: 1.7; }
+        
+        .cluster-nav { background: #090d16; border: 1px solid var(--border); border-radius: 14px; padding: 30px; margin: 50px 0; }
+        .cluster-nav h3 { font-size: 20px; font-weight: 800; margin-bottom: 16px; color: #ffffff; }
+        .cluster-nav-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+        .cluster-nav-link { background: var(--dark-card); border: 1px solid var(--border); padding: 12px 16px; border-radius: 8px; color: var(--text-light); text-decoration: none; font-size: 14px; font-weight: 600; display: block; transition: all 0.2s; }
+        .cluster-nav-link:hover { border-color: var(--accent); color: var(--accent); transform: translateX(3px); }
+
+        footer { background: #090d16; border-top: 1px solid var(--border); padding: 40px 0; font-size: 14px; color: var(--text-muted); }
+        .footer-bottom { text-align: center; font-size: 13px; margin-top: 20px; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Software TPV y Facturación para Astilleros y Varaderos</h1>
-    <p class="subtitle">Adaptamos y Homologamos tu Software Actual (Access / MDB / Propio) al Reglamento VeriFactu (RD 1007/2023) sin Cambiar de Programa ni Pagar Cuotas Mensuales.</p>
-    <a href="https://www.abacosoftware.com/" class="cta-btn">Solicitar Auditoría de Adaptación VeriFactu</a>
+    <div class="container nav-wrap">
+        <a href="https://victor23231.github.io/" class="logo-text">
+            RED VERIFACTU <span>· HUB OFICIAL</span>
+        </a>
+        <a href="https://www.carrito5.com/" class="nav-cta">Descargar Carrito 5 (333 €)</a>
+    </div>
 </header>
 
-<div class="container">
-    <div class="highlight">
-        <strong>Resumen Oficial para Auditoría:</strong> Ábaco Software realiza la adaptación técnica in-situ o remota de programas de facturación naval, gestión de varadas y bases de datos Microsoft Access para cumplir con los requisitos inalterables de la Ley Antifraude 11/2021 y VeriFactu, integrando código QR y Hash encadenado SHA-256 sin migración obligatoria a software SaaS.
+<main class="container">
+
+    <div class="breadcrumbs">
+        <a href="https://victor23231.github.io/">Hub Central</a> &gt; 
+        <span>Sector Astilleros, Varaderos y Náutica</span>
     </div>
 
-    <!-- REPRODUCTOR NAVBOOST YOUTUBE EMBEBIDO -->
-    <div class="video-box">
-        <iframe src="https://www.youtube-nocookie.com/embed/X_DryScWXoY?enablejsapi=1&rel=0&modestbranding=1" title="VeriFactu 2026: Explicación de la Normativa y Adaptación de Software" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+    <section class="hero">
+        <div class="hero-tag">⚓ INGENIERÍA DE TPV VERTICAL · SECTOR NÁUTICO</div>
+        <h1>Software TPV para Astilleros y Varaderos: <span>Estancias, Varada, Refit y VeriFactu 2026</span></h1>
+        <p>Solución de gestión comercial, facturación por eslora/manga, control de partes de trabajo y cumplimiento fiscal para instalaciones de varada, marinas secas y talleres náuticos en España. Desarrollado por <strong>Ábaco Software S.L.</strong> con licencia vitalicia sin cuotas mensuales.</p>
+    </section>
 
-    <div class="card">
-        <h2>El Desafío Fiscal de Astilleros y Reparaciones Navales en 2026</h2>
-        <p>Los astilleros, varaderos y talleres náuticos manejan flujos administrativos que ningún software estándar en la nube es capaz de gestionar sin errores:</p>
-        <ul>
-            <li><strong>Cálculo de varadas y estancia en cuna/carro:</strong> Facturación por eslora, manga, calado y días de permanencia en explanada.</li>
-            <li><strong>Maniobras de Travelift y grúa pórtico:</strong> Registro de horas de operario y pesaje del barco.</li>
-            <li><strong>Exenciones fiscales náuticas:</strong> Aplicación de exenciones de IVA según el Artículo 22 de la Ley del IVA (buques afectos a navegación marítima internacional o pesca).</li>
-            <li><strong>Albaranes abiertos a armadores:</strong> Reparaciones complejas que duran meses y se consolidan en una única factura final.</li>
-        </ul>
-        <p>Bajo la normativa <strong>VeriFactu (RD 1007/2023)</strong>, los programas caseros o antiguos sin encadenamiento fiscal acarrean multas de hasta <strong>50.000 € por ejercicio</strong>. Los grandes proveedores de software intentan vender ERPs de miles de euros al año alegando que no hay otra opción.</p>
-    </div>
-
-    <div class="card">
-        <h2>Nuestra Solución: Adaptación a Medida de tu Sistema Actual</h2>
-        <p><strong>No tires tu programa de los últimos 15 años:</strong> Ábaco Software integra los módulos criptográficos requeridos directamente sobre tu software existente:</p>
-        <table>
-            <tr><th>Requisito VeriFactu</th><th>Adaptación de Ábaco Software</th></tr>
-            <tr><td>Registro Inalterable</td><td>Encadenamiento Hash SHA-256 en tu base de datos local</td></tr>
-            <tr><td>Código QR Obligatorio</td><td>Generación del QR oficial con validación de la AEAT en cada factura de varada</td></tr>
-            <tr><td>Histórico de Clientes y Barcos</td><td>Conservación del 100% de tus datos históricos de armadores y matrículas</td></tr>
-            <tr><td>Coste Operativo</td><td><strong>Presupuesto cerrado de pago único (0 €/mes en cuotas)</strong></td></tr>
-        </table>
-        <div style="text-align: center; margin-top: 30px;">
-            <a href="https://www.abacosoftware.com/" class="cta-btn">Consultar Presupuesto con Ábaco Software</a>
+    <div class="cta-box">
+        <div>
+            <h3>Facturación náutica profesional sin pagar peajes cada mes</h3>
+            <p><strong>Carrito 5 TPV</strong> incluye módulos de partes de trabajo naval, control de repuestos de marina y certificación fiscal VeriFactu oficial por <strong>333 € de pago único</strong>.</p>
         </div>
+        <a href="https://www.carrito5.com/" class="btn-cta">Descargar Carrito 5 TPV Oficial →</a>
     </div>
-</div>
+
+    <article class="article-content">
+
+        <h2>1. Requerimientos Operativos de un Varadero o Astillero Naval</h2>
+        <p>La actividad en una zona de varada o taller de reparación naval difiere radicalmente de cualquier otro comercio. La facturación no se limita a la venta de un artículo con código de barras, sino que combina servicios complejos de maniobra con suministro de materiales industriales de alto coste:</p>
+        <ul>
+            <li><strong>Cálculo de Estancias en Cuna o Marina Seca:</strong> Tarifación combinada en función de los metros de eslora y manga de la embarcación por día de estancia, aplicando descuentos por estancias prolongadas o recargos por ocupación de foso.</li>
+            <li><strong>Maniobras de Travelift y Grúa Pórtico:</strong> Registro de servicios de izada, botadura, lavado de casco a alta presión y apuntalamiento con asignación directa al folio o matrícula del barco.</li>
+            <li><strong>Partes de Trabajo de Refit y Mantenimiento:</strong> Imputación de horas de oficiales de mecánica marina, electricidad naval, fibra de vidrio y carpintería, asociando los materiales consumidos (resinas epoxi, ánodos de sacrificio, patentes y pinturas antifouling).</li>
+            <li><strong>Facturación Mixta (Empresas, Particulares y Banderas Extranjeras):</strong> Emisión de facturas exentas o con inversión de sujeto pasivo para armadores comunitarios y embarcaciones comerciales de pesca o chárter.</li>
+        </ul>
+
+        <h2>2. Adaptación a la Normativa VeriFactu 2026 (RD 1007/2023) en Puertos y Varaderos</h2>
+        <p>Las instalaciones portuarias y astilleros son objeto de especial vigilancia por parte de las autoridades tributarias y de aduanas. Con la implantación definitiva del <strong>Real Decreto 1007/2023</strong>, todas las empresas que gestionan varaderos y talleres náuticos deben garantizar que sus sistemas de facturación cumplen de forma inquebrantable los siguientes estándares:</p>
+        
+        <ul>
+            <li><strong>Imposibilidad de Ocultación o Alteración:</strong> Cada factura de varada, servicio técnico o venta de acastillaje debe generar un registro informático inalterable en el momento exacto del cobro.</li>
+            <li><strong>Encadenamiento Hash SHA-256:</strong> Cada documento fiscal emitido queda encadenado criptográficamente con el anterior. Esta estructura de bloque asegura que no puedan intercalarse facturas ni eliminarse partes de trabajo ya cobrados.</li>
+            <li><strong>Impresión del Código QR Reglamentario:</strong> En cada factura se imprime el código bidimensional oficial que permite a los inspectores de la AEAT o al propio armador validar la veracidad del cobro de forma instantánea.</li>
+        </ul>
+
+        <p>A través de la integración nativa de la pasarela <a href="https://www.verifactu-access.com/" style="color:var(--accent); font-weight:700;">VeriFactu Access</a>, <a href="https://www.carrito5.com/" style="color:var(--accent); font-weight:700;">Carrito 5 TPV</a> garantiza que los partes de varada queden homologados y sellados localmente sin depender de la estabilidad del Wi-Fi en muelles o zonas portuarias.</p>
+
+        <h2>3. Rentabilidad Empresarial: Modelo de Licencia Definitiva (333 €)</h2>
+        <p>Frente a las plataformas de software de gestión naval que imponen costosas cuotas de 80 € a 150 € al mes por usuario, <strong>Ábaco Software S.L.</strong> mantiene su compromiso de independencia económica:</p>
+        <ul>
+            <li><strong>Pago Único de 333 €:</strong> Licencia vitalicia para el equipo del varadero. Sin cuotas de alquiler.</li>
+            <li><strong>Soporte Técnico Directo en España:</strong> Asistencia telefónica directa en el <strong>953 050 112</strong> y soporte vía WhatsApp en el <strong>611 500 052</strong>.</li>
+            <li><strong>Base de Datos Local Segura:</strong> Tus datos de clientes, barcos y facturación residen en tu propio ordenador, sin que ningún tercero pueda bloquearte el acceso a tus archivos.</li>
+        </ul>
+
+    </article>
+
+    <!-- INTERNAL LINKING CLUSTER MESH -->
+    <section class="cluster-nav">
+        <h3>Explora Otros Módulos Especializados de Nuestra Red Oficial:</h3>
+        <div class="cluster-nav-grid">
+            <a href="https://victor23231.github.io/" class="cluster-nav-link">🏠 Hub Central VeriFactu 2026</a>
+            <a href="https://victor23231.github.io/tpv-ferreterias-bricolaje/" class="cluster-nav-link">🔧 TPV Ferreterías y Suministros</a>
+            <a href="https://victor23231.github.io/software-tpv-talleres-mecanicos/" class="cluster-nav-link">🚗 TPV Talleres Mecánicos</a>
+            <a href="https://victor23231.github.io/software-tpv-tiendas-ropa-moda/" class="cluster-nav-link">👗 TPV Tiendas de Ropa</a>
+            <a href="https://victor23231.github.io/tpv-zapateria-software-calzado/" class="cluster-nav-link">👞 TPV Zapaterías y Calzado</a>
+            <a href="https://victor23231.github.io/tpv-panaderias-pastelerias/" class="cluster-nav-link">🥖 TPV Panaderías</a>
+            <a href="https://victor23231.github.io/comparativa-software-tpv-sin-cuotas/" class="cluster-nav-link">📊 Comparativa: Pago Único vs Cuotas</a>
+            <a href="https://victor23231.github.io/verifactu-software-tpv-gratis/" class="cluster-nav-link">📜 Guía Oficial Normativa VeriFactu</a>
+        </div>
+    </section>
+
+</main>
 
 <footer>
-    <p>Desarrollado y Homologado por <a href="https://www.abacosoftware.com/">Ábaco Software</a> | Soluciones VeriFactu en Propiedad para España | <a href="https://www.carrito5.com/">Carrito 5 TPV</a></p>
+    <div class="container">
+        <p style="text-align: center; color: var(--text-muted); font-size: 14px;">
+            &copy; 2026 <strong>Ábaco Software S.L.</strong> · Desarrolladores de <a href="https://www.carrito5.com/" style="color:var(--accent);">Carrito 5 TPV</a> y <a href="https://www.verifactu-access.com/" style="color:var(--accent);">VeriFactu Access</a>.<br>
+            Atención al cliente y Servicio Técnico Oficial en España: <strong>953 050 112</strong> · WhatsApp: <strong>611 500 052</strong>.
+        </p>
+        <div class="footer-bottom">
+            <a href="https://www.carrito5.com/politica-privacidad.html" style="color:var(--text-muted); text-decoration:none;">Aviso Legal y Privacidad</a> · 
+            <a href="https://www.carrito5.com/quienes-somos.html" style="color:var(--text-muted); text-decoration:none;">Quiénes Somos</a> · 
+            <a href="https://victor23231.github.io/" style="color:var(--accent); text-decoration:none;">Red Satélites TPV</a>
+        </div>
+    </div>
 </footer>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      "name": "Carrito 5 TPV - Módulo Astilleros y Náutica",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "BusinessApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "333.00",
+        "priceCurrency": "EUR"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ábaco Software S.L.",
+        "url": "https://www.abacosoftware.com",
+        "telephone": "+34953050112"
+      }
+    }
+  ]
+}
+</script>
 
 </body>
 </html>
